@@ -11,6 +11,9 @@
 # production
 /build
 
+#backend
+/sportsee-backend
+
 # misc
 .DS_Store
 .env.local
