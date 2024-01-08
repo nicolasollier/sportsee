@@ -1,15 +1,17 @@
 .sidebar {
-  position: fixed;
+  position: absolute;
+  z-index: 1;
+  top: 0;
   display: flex;
   width: 117px;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 91px);
+  height: 1024px;
   background-color: #020203;
 
   &__list {
     position: absolute;
-    top: 25%;
+    top: 347px;
     display: grid;
     gap: 20px;
     justify-content: center;
@@ -19,8 +21,8 @@
   }
 
   &__trademark {
-    position: fixed;
-    bottom: 60px;
+    position: absolute;
+    bottom: 59px;
     font-size: 12px;
     font-style: normal;
     font-weight: 500; 

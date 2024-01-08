@@ -1,4 +1,6 @@
 .navbar {
+  position: relative;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   padding: 18px 90px 12px 30px;
