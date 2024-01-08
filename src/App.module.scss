@@ -1,6 +1,6 @@
 h1 {
   font-size: 48px;
-  margin: 0 0 41px 0;
+  margin: 0 0 40px 0;
   p {
     color: #000;
     font-size: 18px;
@@ -15,7 +15,7 @@ h1 {
 
 .dashboard {
   max-width: 1126px;
-  display: grid;
+  display: flex;
   grid-gap: 30px;
   margin-top: 77px;
 }
@@ -26,6 +26,12 @@ h1 {
   grid-gap: 30px;
 }
 
+.dashboard_right_col {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 39px;
+}
+
 .card {
   background: #FBFBFB;
   border-radius: 5px;
@@ -34,6 +40,7 @@ h1 {
 .daily_activity {
   width: 835px;
   height: 320px;
+  margin-bottom: 30px;
 }
 
 .average_session {
@@ -47,4 +54,9 @@ h1 {
   grid-column: span 4;
   width: 258px;
   height: 263px;
+}
+
+.nutrition_card {
+  width: 258px;
+  height: 124px;
 }

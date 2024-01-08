@@ -35,13 +35,21 @@ function App() {
             </div>
 
             <div className={styles.dashboard}>
-              <div className={`${styles.card} ${styles.daily_activity}`}>
-                Daily Activity Chart
+              <div>
+                <div className={`${styles.card} ${styles.daily_activity}`}>
+                  Daily Activity Chart
+                </div>
+                <div className={styles.dashboard_bottom_row}>
+                  <div className={`${styles.card} ${styles.average_session}`}>Average Session Length</div>
+                  <div className={`${styles.card} ${styles.intensity}`}>Intensity Chart</div>
+                  <div className={`${styles.card} ${styles.score}`}>Goal Progress</div>
+                </div>
               </div>
-              <div className={styles.dashboard_bottom_row}>
-                <div className={`${styles.card} ${styles.average_session}`}>Average Session Length</div>
-                <div className={`${styles.card} ${styles.intensity}`}>Intensity Chart</div>
-                <div className={`${styles.card} ${styles.score}`}>Goal Progress</div>
+              <div className={styles.dashboard_right_col}>
+                <div className={`${styles.card} ${styles.nutrition_card}`}>Average Session Length</div>
+                <div className={`${styles.card} ${styles.nutrition_card}`}>Intensity Chart</div>
+                <div className={`${styles.card} ${styles.nutrition_card}`}>Goal Progress</div>
+                <div className={`${styles.card} ${styles.nutrition_card}`}>Goal Progress</div>
               </div>
             </div>
           </>
