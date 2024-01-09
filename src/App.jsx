@@ -5,12 +5,15 @@ import "./styles/styles.scss";
 import styles from "./App.module.scss";
 import { getUserDatas } from "./services/api/api.service";
 
+import DailyChart from "./components/Charts/DailyChart/DailyChart";
+import NutritionCard from "./components/Cards/PerformanceCard/NutritionCard";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userDatas = await getUserDatas(18);
+    const userDatas = await getUserDatas();
 
     setUser(userDatas);
     setIsLoading(false);
@@ -36,20 +39,24 @@ function App() {
 
             <div className={styles.dashboard}>
               <div>
-                <div className={`${styles.card} ${styles.daily_activity}`}>
-                  Daily Activity Chart
-                </div>
+                <DailyChart />
                 <div className={styles.dashboard_bottom_row}>
-                  <div className={`${styles.card} ${styles.average_session}`}>Average Session Length</div>
-                  <div className={`${styles.card} ${styles.intensity}`}>Intensity Chart</div>
-                  <div className={`${styles.card} ${styles.score}`}>Goal Progress</div>
+                  <div className={`${styles.card} ${styles.average_session}`}>
+                    Average Session Length
+                  </div>
+                  <div className={`${styles.card} ${styles.intensity}`}>
+                    Intensity Chart
+                  </div>
+                  <div className={`${styles.card} ${styles.score}`}>
+                    Goal Progress
+                  </div>
                 </div>
               </div>
               <div className={styles.dashboard_right_col}>
-                <div className={`${styles.card} ${styles.nutrition_card}`}>Average Session Length</div>
-                <div className={`${styles.card} ${styles.nutrition_card}`}>Intensity Chart</div>
-                <div className={`${styles.card} ${styles.nutrition_card}`}>Goal Progress</div>
-                <div className={`${styles.card} ${styles.nutrition_card}`}>Goal Progress</div>
+                <NutritionCard type="Calories" score={user.keyData.calorieCount} />
+                <NutritionCard type="Proteines" score={user.keyData.proteinCount} />
+                <NutritionCard type="Glucides" score={user.keyData.carbohydrateCount} />
+                <NutritionCard type="Lipides" score={user.keyData.lipidCount}/>
               </div>
             </div>
           </>
