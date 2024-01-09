@@ -7,6 +7,9 @@ import { getUserDatas } from "./services/api/api.service";
 
 import DailyChart from "./components/Charts/DailyChart/DailyChart";
 import NutritionCard from "./components/Cards/PerformanceCard/NutritionCard";
+import Score from "./components/Charts/Score/Score";
+import Performances from "./components/Charts/Performances/Performances";
+import Duration from "./components/Charts/Duration/Duration";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,15 +44,9 @@ function App() {
               <div>
                 <DailyChart />
                 <div className={styles.dashboard_bottom_row}>
-                  <div className={`${styles.card} ${styles.average_session}`}>
-                    Average Session Length
-                  </div>
-                  <div className={`${styles.card} ${styles.intensity}`}>
-                    Intensity Chart
-                  </div>
-                  <div className={`${styles.card} ${styles.score}`}>
-                    Goal Progress
-                  </div>
+                  <Duration />
+                  <Performances />
+                  <Score score={12}/>
                 </div>
               </div>
               <div className={styles.dashboard_right_col}>
