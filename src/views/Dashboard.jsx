@@ -16,7 +16,8 @@ const Dashboard = () => {
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userDatas = await getUserDatas();
+    const userId = new URLSearchParams(window.location.search);
+    const userDatas = await getUserDatas(userId);
 
     setUser(userDatas);
     setIsLoading(false);
@@ -34,7 +35,7 @@ const Dashboard = () => {
         <>
           <div>
             <h1>
-              Bonjour <span>{user.userInfos.firstName}</span>
+              Bonjour <span>{user.userInfos.userInfos.firstName}</span>
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
@@ -51,17 +52,20 @@ const Dashboard = () => {
             <div className={styles.dashboard_right_col}>
               <NutritionCard
                 type="Calories"
-                score={user.keyData.calorieCount}
+                score={user.userInfos.keyData.calorieCount}
               />
               <NutritionCard
                 type="Proteines"
-                score={user.keyData.proteinCount}
+                score={user.userInfos.keyData.proteinCount}
               />
               <NutritionCard
                 type="Glucides"
-                score={user.keyData.carbohydrateCount}
+                score={user.userInfos.keyData.carbohydrateCount}
               />
-              <NutritionCard type="Lipides" score={user.keyData.lipidCount} />
+              <NutritionCard
+                type="Lipides"
+                score={user.userInfos.keyData.lipidCount}
+              />
             </div>
           </div>
         </>
