@@ -10,13 +10,14 @@ import Performances from "../components/Charts/Performances/Performances";
 import Duration from "../components/Charts/Duration/Duration";
 
 import { getUserDatas } from "../services/api/api.service";
+import { formatUserScore } from "../services/dataFormat.service";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userId = new URLSearchParams(window.location.search);
+    const userId = null;
     const userDatas = await getUserDatas(userId);
 
     setUser(userDatas);
@@ -46,7 +47,7 @@ const Dashboard = () => {
               <div className={styles.dashboard_bottom_row}>
                 <Duration />
                 <Performances />
-                <Score score={12} />
+                <Score score={formatUserScore(user.userInfos.score)} />
               </div>
             </div>
             <div className={styles.dashboard_right_col}>
