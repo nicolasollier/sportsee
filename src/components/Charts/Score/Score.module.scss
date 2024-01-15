@@ -31,6 +31,14 @@
     border-radius: 50%;
     background: #FFFFFF;
 
+    &__border {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 10px solid red;
+    }
+
     &__score {
       color: #282D30;
       font-size: 26px;
