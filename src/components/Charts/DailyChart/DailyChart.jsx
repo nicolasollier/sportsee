@@ -10,13 +10,17 @@ import {
   Tooltip,
 } from "recharts";
 
+import {formatUserDailyDates} from "../../../services/dataFormat.service";
+
 const DailyChart = ({ data }) => {
+  const formattedData = formatUserDailyDates(data);
+
   return (
     <div className={`${styles.card} ${styles.daily_activity}`}>
       <ResponsiveContainer
         className={styles.daily_activity__container}
         width="100%"
-        height="90%"
+        height="100%"
       >
         <div className={styles.daily_activity__header}>
           <span className={styles.daily_activity__title}>
@@ -37,9 +41,10 @@ const DailyChart = ({ data }) => {
 
         <BarChart
           className={styles.daily_activity__chart}
-          data={data}
+          data={formattedData}
           barGap={8}
           barSize={8}
+          margin={{ top: 20, left: 10, bottom: 40 }}
         >
           <Tooltip />
           <CartesianGrid

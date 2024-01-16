@@ -41,3 +41,17 @@ export function formatUserSessionsDays(data) {
 
   return formattedDays;
 }
+
+export function formatUserDailyDates(data) {
+  const formattedDates = [];
+  
+  data.forEach((session) => {
+    const day = session.day[session.day.length - 1];
+    formattedDates.push({
+      ...session,
+      day: day,
+    });
+  });
+
+  return formattedDates;
+}
