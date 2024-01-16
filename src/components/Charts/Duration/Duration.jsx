@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -22,6 +22,17 @@ const Duration = ({ data }) => {
     );
   };
 
+  const CustomToolTip = ({ active, payload }) => {
+    if (active) {
+      return (
+        <div className={styles.tooltip}>
+          <p>{payload[0].value} min</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={styles.duration}>
       <h3>
@@ -29,7 +40,7 @@ const Duration = ({ data }) => {
       </h3>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
-          <Tooltip cursor={<CustomCursor />} />
+          <Tooltip cursor={<CustomCursor />} content={<CustomToolTip />} />
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
               <stop offset="10%" stopColor="white" stopOpacity={0.5} />
