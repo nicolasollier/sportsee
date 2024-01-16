@@ -8,8 +8,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "./Duration.module.scss";
+import { formatUserSessionsDays } from "../../../services/dataFormat.service";
 
 const Duration = ({ data }) => {
+  const formattedData = formatUserSessionsDays(data);
+
   const CustomCursor = ({ width, height, points }) => {
     return (
       <rect
@@ -38,7 +41,7 @@ const Duration = ({ data }) => {
         Durée moyenne des <br /> sessions
       </h3>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
+        <LineChart data={formattedData}>
           <Tooltip cursor={<CustomCursor />} content={<CustomToolTip />} />
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">

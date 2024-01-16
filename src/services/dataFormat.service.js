@@ -25,3 +25,19 @@ export function formatUserPerformances(userPerformances) {
     })
     .reverse();
 }
+
+export function formatUserSessionsDays(data) {
+  const formattedDays = [];
+  const days = ["L", "M", "M", "J", "V", "S", "D"];
+
+  data.forEach((session) => {
+    const dayLetter = days[session.day - 1];
+
+    formattedDays.push({
+      ...session,
+      day: dayLetter,
+    });
+  });
+
+  return formattedDays;
+}
