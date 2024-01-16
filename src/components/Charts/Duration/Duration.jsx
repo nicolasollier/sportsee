@@ -63,7 +63,7 @@ const Duration = ({ data }) => {
           <YAxis
             dataKey="sessionLength"
             hide={true}
-            domain={["dataMin - 10", "dataMax + 30"]}
+            domain={["dataMin - 16", "dataMax + 54"]}
           />
           <XAxis
             dataKey="day"

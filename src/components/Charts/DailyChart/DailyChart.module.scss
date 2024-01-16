@@ -17,7 +17,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
+  }
+
+  &__chart {
+    font-size: 14px;
   }
 }
 

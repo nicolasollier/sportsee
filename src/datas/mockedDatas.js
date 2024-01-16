@@ -32,7 +32,7 @@ export const demoUserActivity = {
       },
       {
         day: "2023-07-03",
-        kilogram: 70,
+        kilogram: 71,
         calories: 280,
       },
       {
