@@ -10,8 +10,7 @@ import {
 import styles from "./Duration.module.scss";
 
 const Duration = ({ data }) => {
-  const CustomCursor = (props) => {
-    const { width, height, points } = props;
+  const CustomCursor = ({ width, height, points }) => {
     return (
       <rect
         width={width}
