@@ -10,13 +10,13 @@ import {
 import { formatUserPerformances } from "../../../services/dataFormat.service";
 import styles from "./Performances.module.scss";
 
-const Performances = ({ datas }) => {
-  datas = formatUserPerformances(datas);
+const Performances = ({ data }) => {
+  data = formatUserPerformances(data);
   return (
     <div className={styles.performances}>
       <ResponsiveContainer width='100%' height='100%'>
           <RadarChart
-            data={datas}
+            data={data}
             margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
           >
             <PolarGrid />

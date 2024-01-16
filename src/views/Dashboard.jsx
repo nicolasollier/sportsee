@@ -45,8 +45,8 @@ const Dashboard = () => {
             <div>
               <DailyChart />
               <div className={styles.dashboard_bottom_row}>
-                <Duration />
-                <Performances datas={user.performance} />
+                <Duration data={user.averageSessions.sessions} />
+                <Performances data={user.performance} />
                 <Score score={formatUserScore(user.userInfos.score)} />
               </div>
             </div>
