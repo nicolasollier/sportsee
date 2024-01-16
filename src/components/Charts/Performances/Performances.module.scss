@@ -1,4 +1,8 @@
 .performances {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   grid-column: span 4;
   width: 258px;
   height: 263px;
