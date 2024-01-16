@@ -15,6 +15,18 @@ import {formatUserDailyDates} from "../../../services/dataFormat.service";
 const DailyChart = ({ data }) => {
   const formattedData = formatUserDailyDates(data);
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active) {
+      return (
+        <div className={styles.tooltip}>
+          <p>{payload[0].value} kg</p>
+          <p>{payload[1].value} kCal</p>
+        </div>
+      );
+    }
+    return null;
+  }
+
   return (
     <div className={`${styles.card} ${styles.daily_activity}`}>
       <ResponsiveContainer
@@ -46,7 +58,7 @@ const DailyChart = ({ data }) => {
           barSize={8}
           margin={{ top: 20, left: 10, bottom: 40 }}
         >
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <CartesianGrid
             vertical={false}
             strokeDasharray="2"
