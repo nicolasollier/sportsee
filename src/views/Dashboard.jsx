@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userId = null;
+    const userId = 18;
     const userDatas = await getUserDatas(userId);
 
     setUser(userDatas);

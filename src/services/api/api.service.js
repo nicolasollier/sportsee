@@ -10,7 +10,7 @@ const env = process.env.REACT_APP_ENV;
 
 export const getUserDatas = async (userId) => {
   try {
-    if (env === "demo" || !userId) {
+    if (!userId) {
       return {
         userInfos: demoUserSummary.data,
         activity: demoUserActivity.data,
