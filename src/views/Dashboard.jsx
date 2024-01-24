@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../styles/styles.scss";
 import styles from "./Dashboard.module.scss";
 
@@ -14,10 +15,10 @@ import { formatUserScore } from "../services/dataFormat.service";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { userId } = useParams();
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userId = 18;
     const userDatas = await getUserDatas(userId);
 
     setUser(userDatas);

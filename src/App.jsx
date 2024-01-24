@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./layout/Layout";
@@ -8,6 +7,10 @@ import "./styles/styles.scss";
 const router = createBrowserRouter([
   {
     path: "*",
+    element: <Dashboard />,
+  },
+  {
+    path: "/dashboard/:userId",
     element: <Dashboard />,
   },
 ]);
