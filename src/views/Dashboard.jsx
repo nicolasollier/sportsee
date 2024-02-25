@@ -9,6 +9,7 @@ import NutritionCard from "../components/Cards/PerformanceCard/NutritionCard";
 import Score from "../components/Charts/Score/Score";
 import Performances from "../components/Charts/Performances/Performances";
 import Duration from "../components/Charts/Duration/Duration";
+import Loader from "../components/Loader/Loader";
 
 import { getUserDatas } from "../services/api/api.service";
 import { formatUserScore } from "../services/dataFormat.service";
@@ -32,7 +33,7 @@ const Dashboard = () => {
   return (
     <>
       {isLoading ? (
-        <p>Chargement...</p>
+        <Loader />
       ) : (
         <>
           <div>
