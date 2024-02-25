@@ -2,16 +2,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./layout/Layout";
 import Dashboard from "./views/Dashboard";
+import NotFound from "./views/NotFound";
 import "./styles/styles.scss";
 
 const router = createBrowserRouter([
   {
-    path: "*",
-    element: <Dashboard />,
-  },
-  {
-    path: "/dashboard/:userId",
-    element: <Dashboard />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "*",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/:userId",
+        element: <Dashboard />,
+      },
+    ],
   },
 ]);
 
