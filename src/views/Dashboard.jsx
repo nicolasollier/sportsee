@@ -16,14 +16,27 @@ import { formatUserScore } from "../services/dataFormat.service";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const { userId } = useParams();
   const [user, setUser] = useState({});
 
   const fetchUserDatas = async () => {
-    const userDatas = await getUserDatas(userId);
+    try {
+      const userDatas = await getUserDatas(userId);
 
-    setUser(userDatas);
-    setIsLoading(false);
+      if (!userDatas) {
+        setHasError(true);
+        setIsLoading(false);
+        return;
+      }
+
+      setUser(userDatas);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      setHasError(true);
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -34,6 +47,10 @@ const Dashboard = () => {
     <>
       {isLoading ? (
         <Loader />
+      ) : hasError ? (
+        <div className={styles.errorContainer}>
+          <p>Oops! Une Erreur s'est produite au chargement des données veuillez réessayer ou contacter votre webmestre.</p>
+        </div>
       ) : (
         <>
           <div>
